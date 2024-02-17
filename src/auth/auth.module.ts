@@ -6,7 +6,13 @@ import { JwtStrategy } from './jwt.strategy';
 
 @Module({
   controllers: [AuthController],
-  providers: [AwsCognitoService, JwtStrategy],
-  imports: [PassportModule.register({ defaultStrategy: 'jwt' })]
+  imports: [PassportModule.register({ defaultStrategy: 'jwt' })],
+  providers: [
+    {
+      provide: AwsCognitoService,
+      useValue: new AwsCognitoService(process.env.AWS_COGNITO_USER_POOL_ID, process.env.AWS_COGNITO_CLIENT_ID),
+    },
+    JwtStrategy,
+  ],
 })
 export class AuthModule {}

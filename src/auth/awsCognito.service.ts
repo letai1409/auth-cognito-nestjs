@@ -12,10 +12,10 @@ import { RegisterUserDto } from './dtos/registerUser.dto';
 export class AwsCognitoService {
     private userPool: CognitoUserPool;
 
-    constructor() {
+    constructor(userPoolId: string, clientId: string) {
         this.userPool = new CognitoUserPool({
-            UserPoolId: process.env.AWS_COGNITO_USER_POOL_ID,
-            ClientId: process.env.AWS_COGNITO_CLIENT_ID,
+            UserPoolId: userPoolId,
+            ClientId: clientId,
         });
     }
 
