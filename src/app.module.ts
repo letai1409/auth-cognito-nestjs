@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config'; 
-import { TestModule } from './test/test.module';
+import { BookModule } from './book/book.module';
 import { AuthModule } from './auth/auth.module';
 
 @Module({
@@ -9,7 +9,7 @@ import { AuthModule } from './auth/auth.module';
       isGlobal: true,
       envFilePath: '.dev.env', 
     }),
-    TestModule,
+    BookModule,
     AuthModule
   ],
   controllers: [],

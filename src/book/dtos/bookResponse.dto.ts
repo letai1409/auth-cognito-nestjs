@@ -1,4 +1,4 @@
-export interface Test {
+export class BookResponseDto {
     name: string;
     category: string;
 }
